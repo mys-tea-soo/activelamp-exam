@@ -1,13 +1,27 @@
 <div class="row">
     <div class="col-6">
-            <form action="">
+            <form #urlForm="ngForm" (ngSubmit)="onSubmit()">
                 <div class="mb-3">
                     <label for="url" class="form-label">URL:</label>
-                    <textarea class="form-control" id="url" rows="3"></textarea>
+                    <input class="form-control" id="url" required
+                        [(ngModel)]="model.url" 
+                        name="url" 
+                        #url="ngModel" 
+                    />
                 </div>
+                <div [hidden]="url.valid || url.pristine" class="alert alert-danger"> 
+                    URL is required
+                </div>  
+                
+                <div *ngIf="message"  class="alert alert-success" role="alert">
+                {{ message }}
+                </div>
+
                 <div class="col-12">
-                    <button type="submit" class="btn btn-light">Create</button>
+                    <button type="submit" class="btn btn-light" [disabled]="!urlForm.form.valid">Create</button>
+                    <button type="reset" class="btn btn-light" [disabled]="!urlForm.form.valid">Reset</button>
                 </div>
+                
           </form>
     </div>
 </div>
