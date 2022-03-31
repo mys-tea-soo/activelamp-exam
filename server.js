@@ -1,25 +1,27 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-var corsOptions = {
-  origin: "http://localhost:8081"
-};
-app.use(cors(corsOptions));
+// var corsOptions = {
+//   origin: "http://localhost:8081"
+// };
+// app.use(cors(corsOptions));
+
 // parse requests of content-type - application/json
 app.use(express.json());
-// parse requests of content-type - application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true }));
 
-// const db = require("./app/models");
-// db.sequelize.sync();
+var distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
 
-
-// simple route
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+// Init the server
+var server = app.listen(process.env.PORT || 8080, function () {
+  var port = server.address().port;
+  console.log("App now running on port", port);
 });
-// set port, listen for requests
-const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
+
+/*  "/api/status"
+*   GET: Get server status
+*   PS: it's just an example, not mandatory
+*/
+app.get("/api/url", function (req, res) {
+  res.status(200).json({ status: "UPs" });
 });
