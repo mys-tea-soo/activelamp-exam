@@ -5,10 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule }                 from './app-routing.module';
 import { AppComponent }                     from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { ClipboardModule }                  from 'ngx-clipboard';
 
 import { HomeComponent }    from './components/home/home.component';
-import { DetailsComponent } from './components/details/details.component';
 import { HeaderComponent }  from './layout/header/header.component';
 import { FooterComponent }  from './layout/footer/footer.component';
 
@@ -16,7 +15,6 @@ import { FooterComponent }  from './layout/footer/footer.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    DetailsComponent,
     HeaderComponent,
     FooterComponent,
   ],
@@ -26,6 +24,7 @@ import { FooterComponent }  from './layout/footer/footer.component';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    ClipboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

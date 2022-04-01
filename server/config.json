@@ -1,0 +1,13 @@
+{
+    "database"  : {
+		"host"      : "127.0.0.1",
+		"user"      : "root",
+		"password"	: "",
+		"database"  : "active_lamp_exam"
+    },
+    "baseUrl"   : "http://localhost:8000/",
+	"cors" 		: {
+		"origin": "http://localhost:4200"
+	}
+  }
+  

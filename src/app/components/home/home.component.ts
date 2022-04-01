@@ -12,6 +12,8 @@ export class HomeComponent implements OnInit {
 
 	message = ''
 
+	shorten_url = ''
+
 	constructor(private request : RequestService) { }
 
 	ngOnInit(): void { }
@@ -26,13 +28,11 @@ export class HomeComponent implements OnInit {
 	onSubmit() {
 		this.request.create(this.model)
 			.subscribe(response => {
+				this.message    = response.message
 				if( response.status == 'success' )
-					this.message = response.data
+					this.shorten_url = response.data
 				else
-					this.message = response.message
-
-
-					console.log(this.message)
+					this.shorten_url = ''
 			})
 	}
 

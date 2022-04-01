@@ -17,14 +17,23 @@
                     <div [hidden]="url.valid || url.pristine" class="alert alert-danger"> 
                         URL is required
                     </div>  
-                    
+
                     <div *ngIf="message"  class="alert alert-light" role="alert">
                         {{ message }}
+                    </div>
+                    
+                    <div *ngIf="message && shorten_url"  class="alert alert-light" role="alert">
+                        <a [href]="shorten_url" target="_blank" rel="noopener noreferrer">{{ shorten_url }}</a>
+
+                        <!-- <button class="btn btn-light ml-2 btn btn-sm btn-light"   >Copy</button> -->
+                        <button type="button" ngxClipboard [cbContent]="shorten_url" class="btn btn-light ml-2 btn btn-sm btn-light" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Copy URL">
+                            Copy
+                        </button>
                     </div>
         
                     <div class="col-12">
                         <button type="submit" class="btn btn-light" [disabled]="!urlForm.form.valid">Create</button>
-                        <button type="reset" class="btn btn-danger" [disabled]="!urlForm.form.valid">Cancel</button>
+                        <button type="reset" class="btn btn-light" [disabled]="!urlForm.form.valid">Cancel</button>
                     </div>
                     
                 </form>
