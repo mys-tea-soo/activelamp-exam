@@ -30,6 +30,9 @@ export class HomeComponent implements OnInit {
 					this.message = response.data
 				else
 					this.message = response.message
+
+
+					console.log(this.message)
 			})
 	}
 
