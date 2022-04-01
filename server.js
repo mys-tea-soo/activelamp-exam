@@ -25,9 +25,10 @@ Database Connection
 --------------------------------------------
 --------------------------------------------*/
 const conn = mysql.createConnection({
-  host: '127.0.0.1',
-  user: 'root', /* MySQL User */
-  database: 'active_lamp_exam' /* MySQL Database */
+  host: '192.168.56.56',
+  user: 'homestead',
+  password: 'secret',
+  database: 'xiao',
 });
 
 conn.connect((err) =>{
@@ -85,7 +86,7 @@ app.get('/:code', (req, res) => {
   
 
   let diff = url.length - baseUrl.length
-  console.log(diff)
+  
   if( diff <= 3 )
     return res.send(responseHandler('fail', 'URL is already shorten!'));
   
