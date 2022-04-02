@@ -1,11 +1,11 @@
-#Shorten URL
+# Shorten URL
 
-##Angular 13 TypeSscript + NodeJs 
+## Angular 13 TypeSscript + NodeJs 
 
 ## Configuration
     - Database connection && API Url in (server/config.json)
 
-##Database
+## Database
     - MySql (active_lamp_exam.sql)
     
 
